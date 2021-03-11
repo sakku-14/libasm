@@ -3,8 +3,6 @@
 
 _ft_strlen:
 			xor		rax, rax
-			cmp		rdi, 0
-			je		.done
 			jmp		.compare
 
 .increment:
