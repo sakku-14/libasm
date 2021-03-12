@@ -9,7 +9,7 @@ FLAGS	= -Wall -Wextra -Werror
 SRCS	= ft_strlen.s
 OBJS	= $(SRCS:.s=.o)
 
-%.o:	%.s
+.s.o:
 	$(NA) $(NFLAGS) $<
 
 all: $(NAME)
