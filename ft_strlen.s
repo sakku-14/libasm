@@ -1,6 +1,5 @@
-			section .text
-			global _ft_strlen
-
+			global	_ft_strlen
+			section	.text
 _ft_strlen:
 			xor		rax, rax
 			jmp		.compare
@@ -13,5 +12,5 @@ _ft_strlen:
 			jne		.increment
 
 .done:
-	ret
+			ret
 

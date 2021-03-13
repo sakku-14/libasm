@@ -4,9 +4,10 @@ TEST	= test
 CC		= gcc
 NA		= nasm
 NFLAGS	= -f macho64
-FLAGS	= -Wall -Wextra -Werror
+FLAGS	= -g -Wall -Wextra -Werror
 
-SRCS	= ft_strlen.s
+SRCS	= ft_strlen.s \
+		  ft_strcpy.s
 OBJS	= $(SRCS:.s=.o)
 
 .s.o:

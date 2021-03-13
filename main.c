@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 size_t	ft_strlen(const char *str);
-//char	*ft_strcpy(char *dst, const char *src);
+char	*ft_strcpy(char *dst, const char *src);
 
 void
 	check_strlen(void)
@@ -13,24 +13,24 @@ void
 //	char *str3 = NULL;
 //	printf("len=%d: NULL-ptr\n", (int)ft_strlen(str3));
 }
-/*
+
 void
 	check_strcpy(void)
 {
 	char *dst1 = "0000000000";
-	char *src1 = "1234567890";
-	printf("%s=>%s", src1, ft_strcpy(dst1, src1));
-	char *dst2 = "0000000000";
-	char *src2 = "12345";
-	printf("%s=>%s", src2, ft_strcpy(dst2, src2));
-	char *dst3 = "00000";
-	char *src3 = "123456789";
-	printf("%s=>%s", src3, ft_strcpy(dst3, src3));
+	const char *src1 = "12345";
+	printf("%s=>%s\n", src1, ft_strcpy(dst1, src1));
+//	char *dst2 = "0000000000";
+//	const char *src2 = "12345";
+//	printf("%s=>%s\n", src2, ft_strcpy(dst2, src2));
+//	char *dst3 = "00000";
+//	char *src3 = "123456789";
+//	printf("%s=>%s", src3, ft_strcpy(dst3, src3));
 }
-*/
+
 int		main()
 {
 	check_strlen();
-//	check_strcpy();
+	check_strcpy();
 	return (0);
 }
