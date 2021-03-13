@@ -1,7 +1,7 @@
 			global	_ft_strcpy
 			section	.text
 _ft_strcpy:
-			xor		rdx, rdx
+			xor		rax, rax
 			xor		rcx, rcx
 			cmp		rsi, 0
 			je		.done
@@ -11,10 +11,10 @@ _ft_strcpy:
 			inc		rcx
 
 .copy:
-			mov		dl, byte[rsi + rcx]
-			mov		byte[rdi + rcx], dl
-			cmp		dl, 0
-			jnz		.increment
+			mov		al, byte[rsi + rcx]
+			mov		byte[rdi + rcx], al
+			cmp		al, 0
+			jne		.increment
 
 .done:
 			mov		rax, rdi
