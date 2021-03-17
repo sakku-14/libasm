@@ -7,7 +7,9 @@ NFLAGS	= -f macho64
 FLAGS	= -g -Wall -Wextra -Werror
 
 SRCS	= ft_strlen.s \
-		  ft_strcpy.s
+		  ft_strcpy.s \
+		  ft_strcmp.s \
+		  ft_write.s
 OBJS	= $(SRCS:.s=.o)
 
 .s.o:

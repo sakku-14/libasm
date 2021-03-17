@@ -3,7 +3,7 @@
 _ft_strcpy:
 			xor		rax, rax
 			xor		rcx, rcx
-			cmp		rsi, 0
+			cmp		byte [rsi], 0
 			je		.done
 			jmp		.copy
 
@@ -11,8 +11,8 @@ _ft_strcpy:
 			inc		rcx
 
 .copy:
-			mov		al, byte[rsi + rcx]
-			mov		byte[rdi + rcx], al
+			mov		al, byte [rsi + rcx]
+			mov		byte [rdi + rcx], al
 			cmp		al, 0
 			jne		.increment
 
