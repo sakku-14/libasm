@@ -8,7 +8,6 @@ _ft_write:
 
 .error:
 			mov	rax, -1
-			jmp	.done
 
 .done:
 			ret

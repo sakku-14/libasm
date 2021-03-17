@@ -1,9 +1,15 @@
 #include <stdio.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <errno.h>
 
 size_t	ft_strlen(const char *str);
 char	*ft_strcpy(char *dst, const char *src);
 int		ft_strcmp(const char *s1, const char *s2);
 ssize_t	ft_write(int fildes, const void *buf, size_t nbyte);
+ssize_t	ft_read(int fildes, void *buf, size_t nbyte);
 
 void
 	check_strlen(void)
@@ -69,6 +75,27 @@ void
 	printf("\n12345678901234567890\nret:%d->%s\n", ret, s2);
 }
 
+void
+	check_read(void)
+{
+	int  ret;
+	int  fd;
+
+	char buf[100];
+	fd = open("./text.txt", O_RDONLY);
+	errno = 0;
+	ret = ft_read(fd, buf, 20);
+	printf("%d\n", errno);
+	printf("ret:%d\n%s\n", ret, buf);
+
+	char buf2[100];
+	fd = open("./text.tx", O_RDONLY);
+	errno = 0;
+	ret = ft_read(fd, buf2, 20);
+	printf("%d\n", errno);
+	printf("ret:%d\n%s\n", ret, buf2);
+}
+
 int		main()
 {
 	printf(">>>>>>check_strlen<<<<<<\n");
@@ -79,5 +106,7 @@ int		main()
 	check_strcmp();
 	printf("\n\n\n>>>>>>check_write<<<<<<\n");
 	check_write();
+	printf("\n\n\n>>>>>>check_read<<<<<<\n");
+	check_read();
 	return (0);
 }
