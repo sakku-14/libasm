@@ -4,12 +4,14 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <errno.h>
+#include <stdlib.h>
 
 size_t	ft_strlen(const char *str);
 char	*ft_strcpy(char *dst, const char *src);
 int		ft_strcmp(const char *s1, const char *s2);
 ssize_t	ft_write(int fildes, const void *buf, size_t nbyte);
 ssize_t	ft_read(int fildes, void *buf, size_t nbyte);
+char	*ft_strdup(const char *s1);
 
 void
 	check_strlen(void)
@@ -68,10 +70,16 @@ void
 	int	ret;
 
 	char s1[] = "abcd";
+	errno = 0;
+	printf("errno:%d\n", errno);
 	ret = ft_write(1, s1, 3);
+	printf("\nerrno:%d", errno);
 	printf("\n12345678901234567890\nret:%d->%s\n", ret, s1);
 	char s2[] = "abcd";
+	errno = 0;
+	printf("errno:%d\n", errno);
 	ret = ft_write(1, s2, -3);
+	printf("\nerrno:%d", errno);
 	printf("\n12345678901234567890\nret:%d->%s\n", ret, s2);
 }
 
@@ -84,16 +92,35 @@ void
 	char buf[100];
 	fd = open("./text.txt", O_RDONLY);
 	errno = 0;
-	ret = ft_read(fd, buf, 20);
-	printf("%d\n", errno);
+	printf("\nerrno:%d\n", errno);
+	ret = ft_read(fd, buf, 16);
+	buf[16] = '\0';
+	printf("\nerrno:%d\n", errno);
 	printf("ret:%d\n%s\n", ret, buf);
 
 	char buf2[100];
 	fd = open("./text.tx", O_RDONLY);
 	errno = 0;
+	printf("\nerrno:%d\n", errno);
 	ret = ft_read(fd, buf2, 20);
-	printf("%d\n", errno);
+	buf[20] = '\0';
+	printf("\nerrno:%d\n", errno);
 	printf("ret:%d\n%s\n", ret, buf2);
+}
+
+void
+	check_strdup(void)
+{
+	char *dst;
+	char src1[] = "hello";
+	dst = ft_strdup(src1);
+	printf("%s\n", dst);
+	free(dst);
+
+	char src2[] = "12345678901234567890";
+	dst = ft_strdup(src2);
+	printf("%s\n", dst);
+	free(dst);
 }
 
 int		main()
@@ -108,5 +135,7 @@ int		main()
 	check_write();
 	printf("\n\n\n>>>>>>check_read<<<<<<\n");
 	check_read();
+	printf("\n\n\n>>>>>>check_strdup<<<<<<\n");
+	check_strdup();
 	return (0);
 }
