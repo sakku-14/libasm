@@ -71,16 +71,63 @@ void
 
 	char s1[] = "abcd";
 	errno = 0;
-	printf("errno:%d\n", errno);
 	ret = ft_write(1, s1, 3);
-	printf("\nerrno:%d", errno);
-	printf("\n12345678901234567890\nret:%d->%s\n", ret, s1);
+	printf("\n12345678901234567890\nerrno:%d,ret:%d->%s\n", errno, ret, s1);
+	errno = 0;
+	ret = write(1, s1, 3);
+	printf("\n12345678901234567890\nerrno:%d,ret:%d->%s\n", errno, ret, s1);
+	printf("\n");
+
 	char s2[] = "abcd";
 	errno = 0;
-	printf("errno:%d\n", errno);
 	ret = ft_write(1, s2, -3);
-	printf("\nerrno:%d", errno);
-	printf("\n12345678901234567890\nret:%d->%s\n", ret, s2);
+	printf("\n12345678901234567890\nerrno:%d,ret:%d->%s\n", errno, ret, s2);
+	errno = 0;
+	ret = write(1, s2, -3);
+	printf("\n12345678901234567890\nerrno:%d,ret:%d->%s\n", errno, ret, s2);
+	printf("\n");
+
+
+	char s3[] = "abcd";
+	errno = 0;
+	ret = ft_write(0, s3, 3);
+	printf("\n12345678901234567890\nerrno:%d,ret:%d->%s\n", errno, ret, s3);
+	errno = 0;
+	ret = write(0, s3, 3);
+	printf("\n12345678901234567890\nerrno:%d,ret:%d->%s\n", errno, ret, s3);
+	printf("\n");
+
+
+	char s4[] = "abcd";
+	errno = 0;
+	ret = ft_write(-1, s4, 3);
+	printf("\n12345678901234567890\nerrno:%d,ret:%d->%s\n", errno, ret, s4);
+	errno = 0;
+	ret = write(-1, s4, 3);
+	printf("\n12345678901234567890\nerrno:%d,ret:%d->%s\n", errno, ret, s4);
+	printf("\n");
+
+
+	char s5[] = "abcd";
+	errno = 0;
+	ret = ft_write(2, s5, -3);
+	printf("\n12345678901234567890\nerrno:%d,ret:%d->%s\n", errno, ret, s5);
+	errno = 0;
+	ret = write(2, s5, -3);
+	printf("\n12345678901234567890\nerrno:%d,ret:%d->%s\n", errno, ret, s5);
+	printf("\n");
+
+
+	char s6[] = "abcd";
+	errno = 0;
+	ret = ft_write(1, NULL, 1);
+	printf("\n12345678901234567890\nerrno:%d,ret:%d->%s\n", errno, ret, s6);
+	errno = 0;
+	ret = write(1, NULL, 1);
+	printf("\n12345678901234567890\nerrno:%d,ret:%d->%s\n", errno, ret, s6);
+	printf("\n");
+
+
 }
 
 void
@@ -89,23 +136,35 @@ void
 	int  ret;
 	int  fd;
 
-	char buf[100];
+	char buf1[100];
+	char buf2[100];
 	fd = open("./text.txt", O_RDONLY);
 	errno = 0;
-	printf("\nerrno:%d\n", errno);
-	ret = ft_read(fd, buf, 16);
-	buf[16] = '\0';
-	printf("\nerrno:%d\n", errno);
-	printf("ret:%d\n%s\n", ret, buf);
+	ret = ft_read(fd, buf1, 16);
+	buf1[16] = '\0';
+	printf("\nerrno:%d,ret:%d->%s\n", errno, ret, buf1);
+	close(fd);
+	fd = open("./text.txt", O_RDONLY);
+	errno = 0;
+	ret = read(fd, buf2, 16);
+	buf2[16] = '\0';
+	printf("\nerrno:%d,ret:%d->%s\n", errno, ret, buf2);
+	close(fd);
 
-	char buf2[100];
+	char buf3[100];
+	char buf4[100];
 	fd = open("./text.tx", O_RDONLY);
 	errno = 0;
-	printf("\nerrno:%d\n", errno);
-	ret = ft_read(fd, buf2, 20);
-	buf[20] = '\0';
-	printf("\nerrno:%d\n", errno);
-	printf("ret:%d\n%s\n", ret, buf2);
+	ret = ft_read(fd, buf3, 20);
+	buf3[20] = '\0';
+	printf("\nerrno:%d,ret:%d->%s\n", errno, ret, buf3);
+	close(fd);
+	fd = open("./text.tx", O_RDONLY);
+	errno = 0;
+	ret = read(fd, buf4, 20);
+	buf4[20] = '\0';
+	printf("\nerrno:%d,ret:%d->%s\n", errno, ret, buf4);
+	close(fd);
 }
 
 void
