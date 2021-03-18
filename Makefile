@@ -1,10 +1,22 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: ysakuma <ysakuma@student.42tokyo.j>        +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2021/03/18 14:01:56 by ysakuma           #+#    #+#              #
+#    Updated: 2021/03/18 14:02:14 by ysakuma          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME	= libasm.a
 TEST	= test
 
 CC		= gcc
 NA		= nasm
 NFLAGS	= -f macho64
-FLAGS	= -g -Wall -Wextra -Werror
+FLAGS	= -Wall -Wextra -Werror
 
 SRCS	= ft_strlen.s \
 		  ft_strcpy.s \
@@ -32,6 +44,6 @@ re: fclean $(NAME)
 
 test: $(NAME)
 	gcc $(FLAGS) -L. -lasm -o $(TEST) main.c
-	./$(TEST) < Makefile
+	./$(TEST)
 
 .PHONY: clean fclean re test
