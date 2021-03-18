@@ -5,6 +5,7 @@
 #include <fcntl.h>
 #include <errno.h>
 #include <stdlib.h>
+#include <string.h>
 
 size_t	ft_strlen(const char *str);
 char	*ft_strcpy(char *dst, const char *src);
@@ -43,11 +44,14 @@ void
 {
 	int	ret;
 
-	ret = 0;
 	if ((ret = ft_strcmp(s1, s2)) == 0)
-		printf("ret=%d:OK:%s:%s\n", ret, s1, s2);
+		printf("ret=%4d:OK:%s:%s\n", ret, s1, s2);
 	else
-		printf("ret=%d:NG:%s,%s\n", ret, s1, s2);
+		printf("ret=%4d:NG:%s,%s\n", ret, s1, s2);
+	if ((ret = strcmp(s1, s2)) == 0)
+		printf("ret=%4d:OK:%s:%s\n", ret, s1, s2);
+	else
+		printf("ret=%4d:NG:%s,%s\n", ret, s1, s2);
 }
 
 void
@@ -62,6 +66,15 @@ void
 	const char s5[] = "12345";
 	const char s6[] = "123456789";
 	print_result_strcmp(s5, s6);
+	const char s7[] = "bonjour";
+	const char s8[] = "onjour";
+	print_result_strcmp(s7, s8);
+	const char s9[] = "\x01";
+	const char s10[] = "\x02";
+	print_result_strcmp(s9, s10);
+	const char s11[] = "\xfe";
+	const char s12[] = "\xff";
+	print_result_strcmp(s11, s12);
 }
 
 void
