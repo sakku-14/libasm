@@ -104,10 +104,6 @@ void
 	print_result_strcmp("hello world", "helloworld");
 	___test_case___("strcmp", ++index);
 	print_result_strcmp("\n\t\n", "\n\n\n");
-	___test_case___("strcmp", ++index);
-	print_result_strcmp("\x01", "\x02");
-	___test_case___("strcmp", ++index);
-	print_result_strcmp("\xfe", "\xff");
 }
 
 void
@@ -216,6 +212,8 @@ void
 	print_result_strdup("aaaaa\0bbb\0");
 	___test_case___("strdup", ++index);
 	print_result_strdup("000000000\n000000\n\t000000");
+	___test_case___("strdup", ++index);
+	print_result_strdup("");
 }
 
 int		main()
