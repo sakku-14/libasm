@@ -2,8 +2,6 @@
 			section	.text
 _ft_strcpy:
 			xor		rcx, rcx
-			cmp		byte [rsi], 0
-			je		.done
 			jmp		.copy
 
 .increment:

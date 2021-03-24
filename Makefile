@@ -6,7 +6,7 @@
 #    By: ysakuma <ysakuma@student.42tokyo.j>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/18 14:01:56 by ysakuma           #+#    #+#              #
-#    Updated: 2021/03/18 14:02:14 by ysakuma          ###   ########.fr        #
+#    Updated: 2021/03/24 23:59:38 by ysakuma          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,4 +46,4 @@ test: $(NAME)
 	gcc $(FLAGS) -L. -lasm -o $(TEST) main.c
 	./$(TEST)
 
-.PHONY: clean fclean re test
+.PHONY: all clean fclean re test
