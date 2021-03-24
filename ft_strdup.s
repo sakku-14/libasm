@@ -3,6 +3,7 @@
 			extern	_malloc
 			extern	_ft_strlen
 			extern	_ft_strcpy
+			extern	___error
 _ft_strdup:
 			mov		rdx, rdi
 			push	rdi
@@ -29,4 +30,8 @@ _ft_strdup:
 			ret
 
 .err_exit:
+			push	rax
+			call	___error
+			pop		qword[rax]
+			mov		rax, 0
 			ret
