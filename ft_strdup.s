@@ -1,9 +1,10 @@
 			global	_ft_strdup
-			section	.text
 			extern	_malloc
 			extern	_ft_strlen
 			extern	_ft_strcpy
 			extern	___error
+
+			section	.text
 _ft_strdup:
 			mov		rdx, rdi
 			push	rdi
