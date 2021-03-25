@@ -13,7 +13,6 @@ _ft_strcpy:
 			je		.done
 			mov		al, byte [rsi + rcx]
 			mov		byte [rdi + rcx], al
-			cmp		al, 0
 			jne		.increment
 
 .done:
