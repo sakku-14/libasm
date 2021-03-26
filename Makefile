@@ -6,7 +6,7 @@
 #    By: ysakuma <ysakuma@student.42tokyo.j>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/18 14:01:56 by ysakuma           #+#    #+#              #
-#    Updated: 2021/03/25 11:35:38 by ysakuma          ###   ########.fr        #
+#    Updated: 2021/03/26 19:50:10 by ysakuma          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,10 +35,10 @@ $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
 clean:
-	rm -rf $(OBJS) $(BONUS_OBJS)
+	${RM} $(OBJS) $(BONUS_OBJS)
 
 fclean: clean
-	rm -rf $(NAME) $(TEST)
+	${RM} $(NAME) $(TEST)
 
 re: fclean $(NAME)
 
