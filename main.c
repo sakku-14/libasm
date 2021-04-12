@@ -6,7 +6,7 @@
 /*   By: ysakuma <ysakuma@student.42tokyo.j>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 11:33:20 by ysakuma           #+#    #+#             */
-/*   Updated: 2021/04/13 02:10:26 by ysakuma          ###   ########.fr       */
+/*   Updated: 2021/04/13 03:05:16 by ysakuma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -261,23 +261,19 @@ void
 
 int		main()
 {
-	/*
 	printf(">>>>>>>>>check_strlen<<<<<<<<\n");
 	check_strlen();
 	printf("\n\n\n>>>>>>>>>check_strcpy<<<<<<<<\n");
 	check_strcpy();
-	*/
 	printf("\n\n\n>>>>>>>>>check_strcmp<<<<<<<<\n");
 	check_strcmp();
 	printf("\n\n\n>>>>>>>>>check_strcmp2<<<<<<<<\n");
 	check_strcmp2();
-	/*
 	printf("\n\n\n>>>>>>>>>check_write<<<<<<<<<\n");
 	check_write();
 	printf("\n\n\n>>>>>>>>>check_read<<<<<<<<<<\n");
 	check_read();
 	printf("\n\n\n>>>>>>>>>check_strdup<<<<<<<<<\n");
 	check_strdup();
-	*/
 	return (0);
 }
