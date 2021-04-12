@@ -5,7 +5,7 @@
 
 			section	.text
 _ft_strdup:
-			mov		rdx, rdi
+			mov		rdx, rdi;余分な１行
 			push	rdi
 
 .scale_len:
@@ -17,7 +17,7 @@ _ft_strdup:
 			mov		rdi, rcx
 			call	_malloc
 			cmp		rax, 0
-			je		.err_exit
+			je		.err_exit;->je .done
 
 .str_cpy:
 			mov		rdi, rax
@@ -25,8 +25,8 @@ _ft_strdup:
 			call	_ft_strcpy
 
 .done:
-			mov		rdi, rax
+			mov		rdi, rax;余分な１行
 			ret
-
+;↓不要
 .err_exit:
 			ret
