@@ -6,7 +6,7 @@
 #    By: ysakuma <ysakuma@student.42tokyo.j>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/18 14:01:56 by ysakuma           #+#    #+#              #
-#    Updated: 2021/03/26 19:50:10 by ysakuma          ###   ########.fr        #
+#    Updated: 2021/04/13 01:59:41 by ysakuma          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ FLAGS	= -Wall -Wextra -Werror
 SRCS	= ft_strlen.s \
 		  ft_strcpy.s \
 		  ft_strcmp.s \
+		  ft_strcmp2.s \
 		  ft_write.s \
 		  ft_read.s \
 		  ft_strdup.s

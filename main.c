@@ -6,7 +6,7 @@
 /*   By: ysakuma <ysakuma@student.42tokyo.j>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 11:33:20 by ysakuma           #+#    #+#             */
-/*   Updated: 2021/03/25 11:33:21 by ysakuma          ###   ########.fr       */
+/*   Updated: 2021/04/13 02:10:26 by ysakuma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 size_t	ft_strlen(const char *str);
 char	*ft_strcpy(char *dst, const char *src);
 int		ft_strcmp(const char *s1, const char *s2);
+int		ft_strcmp2(const char *s1, const char *s2);
 ssize_t	ft_write(int fildes, const void *buf, size_t nbyte);
 ssize_t	ft_read(int fildes, void *buf, size_t nbyte);
 char	*ft_strdup(const char *s1);
@@ -78,6 +79,40 @@ void
 	print_strcpy_result("0000000000", "123\n456\n789");
 	___test_case___("strcpy", ++index);
 	print_strcpy_result("", "123456789");
+}
+
+void
+	print_result_strcmp2(const char *s1, const char *s2)
+{
+	int	ret;
+
+	printf("s1:%s\ns2:%s\n", s1, s2);
+	if ((ret = ft_strcmp2(s1, s2)) == 0)
+		printf("ft_strcmp2:ret=%4d:OK\n", ret);
+	else
+		printf("ft_strcmp2:ret=%4d:NG\n", ret);
+	if ((ret = strcmp(s1, s2)) == 0)
+		printf("strcmp   :ret=%4d:OK\n", ret);
+	else
+		printf("strcmp   :ret=%4d:NG\n", ret);
+}
+
+void
+	check_strcmp2(void)
+{
+	int index = 0;
+	___test_case___("strcmp2", ++index);
+	print_result_strcmp2("12345", "12345");
+	___test_case___("strcmp2", ++index);
+	print_result_strcmp2("123456789", "12345");
+	___test_case___("strcmp2", ++index);
+	print_result_strcmp2("12345", "123456789");
+	___test_case___("strcmp2", ++index);
+	print_result_strcmp2("bonjour", "onjour");
+	___test_case___("strcmp2", ++index);
+	print_result_strcmp2("hello world", "helloworld");
+	___test_case___("strcmp2", ++index);
+	print_result_strcmp2("\n\t\n", "\n\n\n");
 }
 
 void
@@ -226,17 +261,23 @@ void
 
 int		main()
 {
+	/*
 	printf(">>>>>>>>>check_strlen<<<<<<<<\n");
 	check_strlen();
 	printf("\n\n\n>>>>>>>>>check_strcpy<<<<<<<<\n");
 	check_strcpy();
+	*/
 	printf("\n\n\n>>>>>>>>>check_strcmp<<<<<<<<\n");
 	check_strcmp();
+	printf("\n\n\n>>>>>>>>>check_strcmp2<<<<<<<<\n");
+	check_strcmp2();
+	/*
 	printf("\n\n\n>>>>>>>>>check_write<<<<<<<<<\n");
 	check_write();
 	printf("\n\n\n>>>>>>>>>check_read<<<<<<<<<<\n");
 	check_read();
 	printf("\n\n\n>>>>>>>>>check_strdup<<<<<<<<<\n");
 	check_strdup();
+	*/
 	return (0);
 }
